@@ -7,7 +7,7 @@ eureka:
 
 spring:
   datasource:
-    url: jdbc:postgresql://db:5432/shop_service
+    url: jdbc:postgresql://db:5432/account_service
     username: user
     password: pwd
     driver-class-name: org.postgresql.Driver
@@ -28,9 +28,3 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
 
-minio:
-  endpoint: http://minio:9000
-  access-key: minioadmin
-  secret-key: minioadmin
-  bucket-name: product-images
-  region: us-east-1
