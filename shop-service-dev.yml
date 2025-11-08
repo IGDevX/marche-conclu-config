@@ -28,6 +28,11 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
 
+  elasticsearch:
+    uris: http://elasticsearch:9200
+    connection-timeout: 10s
+    socket-timeout: 30s
+
 minio:
   endpoint: http://minio:9000
   access-key: minioadmin
