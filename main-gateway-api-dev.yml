@@ -5,3 +5,9 @@ spring:
         jwt:
           issuer-uri: http://keycloak:3000/realms/marche-conclu
 
+app:
+  security:
+    public-paths:
+      - /public/**
+      - /health
+      - /actuator/info
