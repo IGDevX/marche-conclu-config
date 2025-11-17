@@ -3,5 +3,5 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak:8080/realms/marche-conclu
+          issuer-uri: http://keycloak:3000/realms/marche-conclu
 
