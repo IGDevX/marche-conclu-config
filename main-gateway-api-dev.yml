@@ -5,6 +5,16 @@ spring:
         jwt:
           issuer-uri: http://keycloak:3000/realms/marche-conclu
 
+  cloud:
+    gateway:
+      routes:
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/notification/**
+          filters:
+            - StripPrefix=1   # removes "notification" before forwarding
+
 app:
   security:
     public-paths:
