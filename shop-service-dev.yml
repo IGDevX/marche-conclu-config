@@ -17,7 +17,8 @@ spring:
     baseline-on-migrate: true
     clean-disabled: true
     locations: classpath:db/migration,classpath:db/dev-local
-    default-schema: public
+    schemas: shop_schema
+    default-schema: shop_schema
 
   jpa:
     hibernate:

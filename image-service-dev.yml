@@ -7,7 +7,7 @@ eureka:
 
 spring:
   datasource:
-    url: jdbc:postgresql://db:5432/account_service
+    url: jdbc:postgresql://db:5432/image_service
     username: user
     password: pwd
     driver-class-name: org.postgresql.Driver
@@ -16,9 +16,9 @@ spring:
     enabled: true
     baseline-on-migrate: true
     clean-disabled: true
-    locations: classpath:db/migration,classpath:db/dev-local
-    schemas: account_schema
-    default-schema: account_schema
+    locations: classpath:db/migration
+    schemas: image_schema
+    default-schema: image_schema
 
   jpa:
     hibernate:
@@ -28,4 +28,11 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
+
+minio:
+  endpoint: http://minio:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  bucket-name: marche-conclu-images-dev
+  region: us-east-1
 
