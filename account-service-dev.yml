@@ -26,6 +26,7 @@ spring:
     show-sql: true
     properties:
       hibernate:
+        default_schema: account_schema
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
 
