@@ -16,7 +16,6 @@ spring:
                 - Path=/notification/**
               filters:
                 - StripPrefix=1
-                - TokenRelay
 
             - id: shop-service
               uri: lb://shop-service
@@ -24,7 +23,6 @@ spring:
                 - Path=/shop/**
               filters:
                 - StripPrefix=1
-                - TokenRelay
 
 app:
   security:
