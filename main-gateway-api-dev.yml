@@ -3,7 +3,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak:3000/realms/marche-conclu
+          issuer-uri: https://marche-conclu-keycloak.cluster-ig5.igpolytech.fr/realms/marche-conclu
 
   cloud:
     gateway:
@@ -15,7 +15,16 @@ spring:
               predicates:
                 - Path=/notification/**
               filters:
-                - StripPrefix=1   # removes "notification" before forwarding
+                - StripPrefix=1
+                - TokenRelay
+
+            - id: shop-service
+              uri: lb://shop-service
+              predicates:
+                - Path=/shop/**
+              filters:
+                - StripPrefix=1
+                - TokenRelay
 
 app:
   security:
