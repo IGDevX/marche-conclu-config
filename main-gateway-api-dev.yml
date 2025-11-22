@@ -24,6 +24,13 @@ spring:
               filters:
                 - StripPrefix=1
 
+            - id: account-service
+              uri: lb://account-service
+              predicates:
+                - Path=/account/**
+              filters:
+                - StripPrefix=1
+
 app:
   security:
     public-paths:
