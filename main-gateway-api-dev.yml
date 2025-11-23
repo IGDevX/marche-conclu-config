@@ -7,43 +7,42 @@ spring:
 
   cloud:
     gateway:
-      server:
-        webflux:
-          routes:
-            - id: notification-service
-              uri: lb://notification-service
-              predicates:
-                - Path=/notification/**
-              filters:
-                - StripPrefix=1
+      routes:
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/notification/**
+          filters:
+            - StripPrefix=1
 
-            - id: shop-service
-              uri: lb://shop-service
-              predicates:
-                - Path=/shop/**
-              filters:
-                - StripPrefix=1
+        - id: shop-service
+          uri: lb://shop-service
+          predicates:
+            - Path=/shop/**
+          filters:
+            - StripPrefix=1
 
-            - id: account-service
-              uri: lb://account-service
-              predicates:
-                - Path=/account/**
-              filters:
-                - StripPrefix=1
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path=/account/**
+          filters:
+            - StripPrefix=1
       
-            - id: order-service
-              uri: lb://order-service 
-              predicates:
-                - Path=/order/**
-              filters:
-                - StripPrefix=1 
+        - id: order-service
+          uri: lb://order-service 
+          predicates:
+            - Path=/order/**
+          filters:
+            - StripPrefix=1 
 
-            - id: payment-service
-              uri: lb://payment-service 
-              predicates:
-                - Path=/payment/**
-              filters:
-                - StripPrefix=1                
+        - id: payment-service
+          uri: lb://payment-service 
+          predicates:
+            - Path=/payment/**
+          filters:
+            - StripPrefix=1
+
 app:
   security:
     public-paths:
