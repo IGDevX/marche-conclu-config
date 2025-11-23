@@ -49,9 +49,3 @@ app:
       - /public/**
       - /health
       - /actuator/info
-    
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,gateway
