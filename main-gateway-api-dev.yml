@@ -44,3 +44,6 @@ app:
       - /public/**
       - /health
       - /actuator/info
+      - /account/**
+      - /shop/**
+      - /image/**
