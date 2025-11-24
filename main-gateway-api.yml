@@ -1,0 +1,25 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://marche-conclu-keycloak.web:8080/realms/marche-conclu
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: notification-service
+              uri: lb://notification-service
+              predicates:
+                - Path=/notification/**
+              filters:
+                - StripPrefix=1   # removes "notification" before forwarding
+
+app:
+  security:
+    public-paths:
+      - /public/**
+      - /health
+      - /actuator/info
