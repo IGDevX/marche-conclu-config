@@ -32,6 +32,7 @@ spring:
 
 minio:
   endpoint: http://minio:9000
+  public-url: http://localhost:9000
   access-key: minioadmin
   secret-key: minioadmin
   bucket-name: marche-conclu-images-dev
