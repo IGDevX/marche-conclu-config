@@ -36,7 +36,14 @@ spring:
               predicates:
                 - Path=/order/**
               filters:
-                - StripPrefix=1 
+                - StripPrefix=1
+
+            - id: image-service
+              uri: lb://image-service
+              predicates:
+                - Path=/image/**
+              filters:
+                - StripPrefix=1
 
 app:
   security:
