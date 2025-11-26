@@ -4,7 +4,7 @@ spring:
       ddl-auto: update
 
   kafka:
-    bootstrap-servers: marche-conclu-kafka:9092
+    bootstrap-servers: marche-conclu-kafka.web.1:9092
     consumer:
       group-id: notification-service
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
