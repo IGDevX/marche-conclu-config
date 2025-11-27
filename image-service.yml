@@ -18,7 +18,7 @@ spring:
         format_sql: true
 
 minio:
-  endpoint: http://marche-conclu-minio.web:9000
+  endpoint: http://marche-conclu-minio.web.1:9000
   public-url: https://marche-conclu-minio.cluster-ig5.igpolytech.fr:9000
   bucket-name: marche-conclu-images-dev
   region: us-east-1
