@@ -15,7 +15,35 @@ spring:
               predicates:
                 - Path=/notification/**
               filters:
-                - StripPrefix=1   # removes "notification" before forwarding
+                - StripPrefix=1
+
+            - id: shop-service
+              uri: lb://shop-service
+              predicates:
+                - Path=/shop/**
+              filters:
+                - StripPrefix=1
+
+            - id: account-service
+              uri: lb://account-service
+              predicates:
+                - Path=/account/**
+              filters:
+                - StripPrefix=1
+      
+            - id: order-service
+              uri: lb://order-service 
+              predicates:
+                - Path=/order/**
+              filters:
+                - StripPrefix=1
+
+            - id: image-service
+              uri: lb://image-service
+              predicates:
+                - Path=/image/**
+              filters:
+                - StripPrefix=1
 
 app:
   security:
