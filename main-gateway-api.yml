@@ -16,6 +16,12 @@ spring:
                 - Path=/notification/**
               filters:
                 - StripPrefix=1   # removes "notification" before forwarding
+            - id: account-service
+              uri: lb://account-service
+              predicates:
+                - Path=/account/**
+              filters:
+                - StripPrefix=1
 
 app:
   security:
