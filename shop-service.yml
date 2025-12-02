@@ -6,3 +6,15 @@ management:
   endpoint:
     health:
       show-details: always
+
+spring:
+  elasticsearch:
+    uris: http://marche-conclu-elasticsearch.web.1:9200
+    connection-timeout: 10s
+    socket-timeout: 30s
+
+minio:
+  endpoint: http://marche-conclu-minio.web.1:9000
+  public-url: https://marche-conclu-minio.cluster-ig5.igpolytech.fr:9000
+  bucket-name: product-images 
+  region: us-east-1
