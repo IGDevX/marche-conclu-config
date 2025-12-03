@@ -22,6 +22,24 @@ spring:
                 - Path=/account/**
               filters:
                 - StripPrefix=1
+            - id: shop-service
+              uri: lb://shop-service
+              predicates:
+                - Path=/shop/**
+              filters:
+                - StripPrefix=1
+            - id: order-service
+              uri: lb://order-service
+              predicates:
+                - Path=/order/**
+              filters:
+                - StripPrefix=1
+            - id: payment-service
+              uri: lb://payment-service
+              predicates:
+                - Path=/payment/**
+              filters:
+                - StripPrefix=1
 
 app:
   security:
