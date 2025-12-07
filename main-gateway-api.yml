@@ -48,4 +48,4 @@ app:
       - /public/**
       - /health
       - /actuator/info
-      - /shop
+      - /shop/**
