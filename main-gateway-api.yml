@@ -3,7 +3,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://marche-conclu-keycloak.web.1:8080/realms/marche-conclu
+          issuer-uri: http://marche-conclu-keycloak.web:8080/realms/marche-conclu
 
   cloud:
     gateway:
