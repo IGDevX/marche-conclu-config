@@ -3,7 +3,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://keycloak:3000/realms/marche-conclu
+          issuer-uri: http://localhost:3000/realms/marche-conclu
+          jwk-set-uri: http://keycloak:3000/realms/marche-conclu/protocol/openid-connect/certs
 
   cloud:
     gateway:
@@ -15,33 +16,29 @@ spring:
               predicates:
                 - Path=/notification/**
               filters:
-                - StripPrefix=1
-
-            - id: shop-service
-              uri: lb://shop-service
-              predicates:
-                - Path=/shop/**
-              filters:
-                - StripPrefix=1
-
+                - StripPrefix=1   # removes "notification" before forwarding
             - id: account-service
               uri: lb://account-service
               predicates:
                 - Path=/account/**
               filters:
                 - StripPrefix=1
-      
+            - id: shop-service
+              uri: lb://shop-service
+              predicates:
+                - Path=/shop/**
+              filters:
+                - StripPrefix=1
             - id: order-service
-              uri: lb://order-service 
+              uri: lb://order-service
               predicates:
                 - Path=/order/**
               filters:
                 - StripPrefix=1
-
-            - id: image-service
-              uri: lb://image-service
+            - id: payment-service
+              uri: lb://payment-service
               predicates:
-                - Path=/image/**
+                - Path=/payment/**
               filters:
                 - StripPrefix=1
 
@@ -51,3 +48,4 @@ app:
       - /public/**
       - /health
       - /actuator/info
+      - /shop/**
